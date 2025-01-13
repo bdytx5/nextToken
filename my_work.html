@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Work</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    h1 {
+        font-size: 18px;
+        color: #222;
+        margin-bottom: 20px;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 10px;
+    }
+    a {
+        text-decoration: none;
+        color: #007bff;
+        font-size: 14px;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+    <h1>Here's a few samples of my work</h1>
+    <ul id="pdfList">
+        <!-- PDF links will be dynamically added here -->
+    </ul>
+
+    <script>
+        // Array of PDF file names
+        const pdfFiles = [
+            "Langchain-RAG-Evaluation.pdf",
+            "LLM-Debugger-Agent.pdf",
+            "LLM-Router-Training.pdf",
+            "ML-Gotchas.pdf",
+            "Phi3-Vision-Fine-Tuning.pdf",
+            "Vision-Fine-Tuning-GPT4o.pdf"
+        ];
+
+        // Reference to the UL element
+        const pdfList = document.getElementById("pdfList");
+
+        // Dynamically create the list of PDF links
+        pdfFiles.forEach(file => {
+            const listItem = document.createElement("li");
+            const link = document.createElement("a");
+
+            // Set the link attributes
+            link.href = file; // Assumes the PDFs are in the same directory as this HTML file
+            link.textContent = file.replace(/-/g, " ").replace(".pdf", ""); // Clean up the name for display
+            link.target = "_blank"; // Open in a new tab
+
+            // Append the link to the list item and the list item to the UL
+            listItem.appendChild(link);
+            pdfList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
