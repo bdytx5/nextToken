@@ -3,155 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NextToken</title>
+<title>NextToken — Earth Foundation Models</title>
 <style>
+:root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --muted: #666666;
+    --line: #e6e6e6;
+}
+* { box-sizing: border-box; }
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
-    padding: 140px;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
 }
-h1 {
-    font-size: 16px;
-    color: #222;
-    margin: 0 0 10px 0;
-    font-weight: normal;
+header.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 32px;
+    border-bottom: 1px solid var(--line);
 }
-p, footer {
-    font-size: 14px;
-    margin: 0 0 10px 0;
+.wordmark {
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
 }
-footer a {
-    color: #666;
+.nav a {
+    color: var(--muted);
     text-decoration: none;
-    margin-right: 10px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
 }
-#terminal {
-    width: 900px;
-    height: 80px;
-    overflow-y: scroll;
-    padding: 10px;
+.nav a:hover { color: var(--ink); }
+
+.hero {
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
-    background-color: #f4f4f4;
-    font-family: 'Courier New', monospace;
-    color: black;
-    font-size: 16px;
-    font-weight: normal;
-}
-#inputContainer {
-    display: flex;
-    width: 600px;
     align-items: center;
-    margin-top: 5px;
+    text-align: center;
+    padding: 70px 24px 40px;
 }
-#input {
-    flex-grow: 1;
-    padding: 5px;
-    font-family: 'Courier New', monospace;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: black; /* Default to black text */
-    animation: blink 1s step-end infinite;
+#globe { width: 340px; height: 340px; max-width: 80vw; }
+.hero h1 {
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 30px 0 14px;
+    max-width: 640px;
+    line-height: 1.2;
 }
-@keyframes blink {
-    50% { border-color: transparent; }
+.hero p {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 540px;
+    line-height: 1.6;
+    margin: 0 0 26px;
 }
-#prompt {
-    white-space: pre;
-    margin-right: 5px;
+.cta {
+    display: inline-block;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 11px 22px;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background .15s, color .15s;
+}
+.cta:hover { background: var(--ink); color: #fff; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-top: 50px;
+}
+.cell { background: var(--bg); padding: 38px 30px; }
+.cell h3 { font-size: 15px; margin: 0 0 10px; font-weight: 600; }
+.cell p { font-size: 14px; color: var(--muted); line-height: 1.6; margin: 0; }
+
+.statement {
+    max-width: 720px;
+    margin: 70px auto;
+    padding: 0 24px;
+    text-align: center;
+}
+.statement p {
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--ink);
+}
+.statement span { color: var(--muted); }
+
+footer.foot {
+    border-top: 1px solid var(--line);
+    padding: 26px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+footer.foot a { color: var(--muted); text-decoration: none; }
+footer.foot a:hover { color: var(--ink); }
+
+@media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 26px; }
 }
 </style>
 </head>
-<body onload="document.getElementById('input').focus();">
-<h1>NextToken Limited Company</h1>
-<p>We build foundation models for the Earth &mdash; learning the planet's physical dynamics from petascale geospatial, atmospheric, and remote-sensing data.</p>
-<footer>
-<a href="https://www.linkedin.com/">LinkedIn</a> |
-<a href="#" onclick="hireMeAlert()">Contact</a>
+<body>
 
+<header class="nav">
+    <div class="wordmark">NextToken</div>
+    <nav>
+        <a href="my_work.html">Research</a>
+        <a href="mailto:byyoung3@gmail.com">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <canvas id="globe" width="680" height="680"></canvas>
+    <h1>Foundation models for the Earth.</h1>
+    <p>NextToken builds large-scale world models that learn the planet's physical
+       dynamics from petascale geospatial, atmospheric, and remote-sensing data.</p>
+    <a class="cta" href="mailto:byyoung3@gmail.com">Get in touch</a>
+</section>
+
+<section class="grid">
+    <div class="cell">
+        <h3>Planetary scale</h3>
+        <p>We train on petabytes of satellite imagery, weather reanalysis, and sensor
+           telemetry — Earth is the largest dataset we have.</p>
+    </div>
+    <div class="cell">
+        <h3>World models</h3>
+        <p>Our models don't just predict pixels; they learn the underlying physics,
+           enabling forecasting and reasoning about the real world.</p>
+    </div>
+    <div class="cell">
+        <h3>Built to deploy</h3>
+        <p>From climate and agriculture to logistics and energy, NextToken models are
+           designed to run in production at scale.</p>
+    </div>
+</section>
+
+<section class="statement">
+    <p>World models are the future of machine intelligence.
+       <span>The systems that understand how the physical world evolves will define
+       the next decade of AI — and the Earth is where they begin.</span></p>
+</section>
+
+<footer class="foot">
+    <div>© 2026 NextToken Limited Company</div>
+    <div>
+        <a href="my_work.html">Research</a> &nbsp;·&nbsp;
+        <a href="mailto:byyoung3@gmail.com">byyoung3@gmail.com</a>
+    </div>
 </footer>
 
-<!-- Terminal Widget -->
-<div id="inputContainer">
-    <span id="prompt" style="font-family: 'Courier New', monospace;">nexttoken ~$</span>
-    <input type="text" id="input" onkeypress="handleInput(event)">
-</div>
-<div id="terminal"></div>
-
 <script>
-const terminal = document.getElementById('terminal');
-const input = document.getElementById('input');
-const files = {
-    'readme.txt': 'NextToken is building foundation models for the Earth. Reach us at byyoung3@gmail.com',
-    'mission.txt': 'Earth is the largest dataset we have. We train large-scale models on atmospheric, oceanic, and remote-sensing data to forecast and reason about the physical world.',
-    'models.txt': 'NT-1: a multi-modal Earth foundation model trained on petabytes of satellite imagery, weather reanalysis, and sensor telemetry.'
-};
+// Black-and-white rotating point-globe — no external assets.
+const canvas = document.getElementById('globe');
+const ctx = canvas.getContext('2d');
+const W = canvas.width, H = canvas.height;
+const cx = W / 2, cy = H / 2;
+const R = W * 0.40;
 
-function handleInput(event) {
-    if (event.key === 'Enter') {
-        const command = input.value.trim();
-        input.value = '';
-        const [cmd, arg] = command.split(' ');
+// Distribute points evenly on a sphere (Fibonacci sphere).
+const N = 1100;
+const pts = [];
+const golden = Math.PI * (3 - Math.sqrt(5));
+for (let i = 0; i < N; i++) {
+    const y = 1 - (i / (N - 1)) * 2;      // y from 1 to -1
+    const r = Math.sqrt(1 - y * y);
+    const theta = golden * i;
+    pts.push({ x: Math.cos(theta) * r, y: y, z: Math.sin(theta) * r });
+}
 
-        let output = `<pre style="color: white;">nexttoken:~$ ${command}\n`;
+let angle = 0;
+function frame() {
+    ctx.clearRect(0, 0, W, H);
+    const sin = Math.sin(angle), cos = Math.cos(angle);
+    const tilt = -0.35; // slight axial tilt
+    const st = Math.sin(tilt), ct = Math.cos(tilt);
 
-        toggleDarkMode(); // Enable dark mode for any command
+    for (const p of pts) {
+        // rotate around Y axis
+        let x = p.x * cos - p.z * sin;
+        let z = p.x * sin + p.z * cos;
+        let y = p.y;
+        // apply tilt around X axis
+        const y2 = y * ct - z * st;
+        const z2 = y * st + z * ct;
 
-        if (cmd === 'clear') {
-            terminal.innerHTML = '';
-            return;
-        } else if (cmd === 'ls') {
-            output += Object.keys(files).join('\\n');
-        } else if (cmd === 'cat') {
-            if (arg in files) {
-                output += files[arg];
-            } else {
-                output += `File not found: ${arg}`;
-            }
-        } else {
-            output += `Unknown command: ${cmd}`;
-        }
-
-        output += '</pre>';
-        terminal.innerHTML += output;
-        terminal.scrollTop = terminal.scrollHeight;
+        const depth = (z2 + 1) / 2;            // 0 (back) .. 1 (front)
+        const sx = cx + x * R;
+        const sy = cy + y2 * R;
+        const size = 0.6 + depth * 1.7;
+        const alpha = 0.15 + depth * 0.7;
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(17,17,17,' + alpha.toFixed(3) + ')';
+        ctx.arc(sx, sy, size, 0, Math.PI * 2);
+        ctx.fill();
     }
+    angle += 0.0035;
+    requestAnimationFrame(frame);
 }
-
-
-function hireMeAlert() {
-    alert("Get in touch: byyoung3@gmail.com");
-}
-
-
-function toggleDarkMode() {
-    document.body.style.backgroundColor = '#121212';
-    document.body.style.color = '#FFFFFF';
-
-    // Update terminal background and text color
-    terminal.style.backgroundColor = '#1e1e1e';
-    terminal.style.color = '#FFFFFF';
-
-    // Update input field to display white text
-    input.style.color = '#FFFFFF';
-    input.style.backgroundColor = 'transparent'; // Ensure no background overrides
-
-    // Update links to white
-    const links = document.querySelectorAll('footer a');
-    links.forEach(link => {
-        link.style.color = '#FFFFFF';
-    });
-
-    // Update header and paragraph text color
-    const h1 = document.querySelector('h1');
-    const p = document.querySelector('p');
-    h1.style.color = '#FFFFFF';
-    p.style.color = '#FFFFFF';
-}
+frame();
 </script>
 </body>
 </html>
