@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brett Young</title>
+<title>NextToken</title>
 <style>
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -67,21 +67,19 @@ footer a {
 </style>
 </head>
 <body onload="document.getElementById('input').focus();">
-<h1>Brett Young</h1>
-<p>Most days you can find me coding, writing, or playing sports!</p>
+<h1>NextToken</h1>
+<p>We build foundation models for the Earth &mdash; learning the planet's physical dynamics from petascale geospatial, atmospheric, and remote-sensing data.</p>
 <footer>
-<a href="https://twitter.com/BrettYoung3d">x.com</a> |
-<a href="https://www.linkedin.com/in/brett-young-aa594b142/">Linkedout</a> |
-<a href="https://wandb.ai/byyoung3">ai writing</a> |
-<a href="https://github.com/bdytx5">git</a> |
-<a href="my_work.html">My Work</a> |
-<a href="#" onclick="hireMeAlert()">Hire Me</a>
+<a href="https://twitter.com/">x.com</a> |
+<a href="https://www.linkedin.com/">LinkedIn</a> |
+<a href="my_work.html">Research</a> |
+<a href="#" onclick="hireMeAlert()">Contact</a>
 
 </footer>
 
 <!-- Terminal Widget -->
 <div id="inputContainer">
-    <span id="prompt" style="font-family: 'Courier New', monospace;">brett@idk ~$</span>
+    <span id="prompt" style="font-family: 'Courier New', monospace;">nexttoken ~$</span>
     <input type="text" id="input" onkeypress="handleInput(event)">
 </div>
 <div id="terminal"></div>
@@ -90,7 +88,9 @@ footer a {
 const terminal = document.getElementById('terminal');
 const input = document.getElementById('input');
 const files = {
-    'readme.txt': 'now we can be friends. my email is byyoung3@gmail.com'
+    'readme.txt': 'NextToken is building foundation models for the Earth. Reach us at hello@nexttokencompany.xyz',
+    'mission.txt': 'Earth is the largest dataset we have. We train large-scale models on atmospheric, oceanic, and remote-sensing data to forecast and reason about the physical world.',
+    'models.txt': 'NT-1: a multi-modal Earth foundation model trained on petabytes of satellite imagery, weather reanalysis, and sensor telemetry.'
 };
 
 function handleInput(event) {
@@ -99,7 +99,7 @@ function handleInput(event) {
         input.value = '';
         const [cmd, arg] = command.split(' ');
 
-        let output = `<pre style="color: white;">brett@idk:~$ ${command}\n`;
+        let output = `<pre style="color: white;">nexttoken:~$ ${command}\n`;
 
         toggleDarkMode(); // Enable dark mode for any command
 
@@ -126,7 +126,7 @@ function handleInput(event) {
 
 
 function hireMeAlert() {
-    alert("Hire me at byyoung3@gmail.com");
+    alert("Get in touch: hello@nexttokencompany.xyz");
 }
 
 
